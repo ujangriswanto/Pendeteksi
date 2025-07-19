@@ -1,0 +1,15 @@
+id: sqli-basic
+info:
+  name: Basic SQL Injection
+  severity: high
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/search.php?q=' OR '1'='1"
+    matchers:
+      - type: word
+        words:
+          - "You have an error in your SQL syntax"
+          - "mysql_fetch"
+        part: body

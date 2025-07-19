@@ -1,0 +1,14 @@
+id: ssti-jinja2
+info:
+  name: SSTI - Jinja2 Injection
+  severity: high
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/?name={{7*7}}"
+    matchers:
+      - type: word
+        words:
+          - "49"
+        part: body

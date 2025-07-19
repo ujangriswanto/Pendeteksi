@@ -1,0 +1,15 @@
+id: rce-basic
+info:
+  name: Basic Remote Command Execution
+  severity: critical
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/?cmd=whoami"
+    matchers:
+      - type: word
+        words:
+          - "root"
+          - "www-data"
+        part: body

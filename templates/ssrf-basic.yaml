@@ -1,0 +1,15 @@
+id: ssrf-basic
+info:
+  name: Basic SSRF Detection
+  severity: high
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/?url=http://127.0.0.1"
+    matchers:
+      - type: word
+        words:
+          - "localhost"
+          - "refused"
+        part: body

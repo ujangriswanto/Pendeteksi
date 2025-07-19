@@ -1,0 +1,14 @@
+id: xss-test
+info:
+  name: Basic XSS Detection
+  severity: medium
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/?q=<script>alert(1)</script>"
+    matchers:
+      - type: word
+        words:
+          - "<script>alert(1)</script>"
+        part: body
