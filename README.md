@@ -11,8 +11,8 @@ Tool vulnerability scanner berbasis Python, terinspirasi dari Nuclei dan Nikto. 
 ## 🚀 Cara Install
 
 ```bash
-git clone https://github.com/ujangriswanto/uvulnscan
-cd uvulnscan
+git clone https://github.com/ujangriswanto/Pendeteksi
+cd pendeteksi
 pip install -r requirements.txt
 python scanner.py -u https://target.com -t templates/
 ```
